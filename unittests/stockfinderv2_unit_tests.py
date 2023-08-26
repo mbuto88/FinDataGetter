@@ -28,7 +28,8 @@ class TestStockFinder(unittest.TestCase):
     def test_scrape_symbols(self, mock_get):
         mock_get.return_value = Mock()
         mock_get.return_value.text = '<table class="quotes"><tr><td>AAPL</td></tr></table>'
-        self.assertEqual(stockfinderv2.scrape_symbols('NASDAQ'), ['AAPL'])
+        apple_array = ['AAPL'] * 26
+        self.assertEqual(stockfinderv2.scrape_symbols('NASDAQ'), apple_array)
 
     @patch('stockfinderv2.fetchStocksByMarketv2')
     @patch('stockfinderv2.select_best_stocks')

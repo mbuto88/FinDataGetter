@@ -68,10 +68,8 @@ def scrape_symbols(exchange):
 
     alphabet = list(string.ascii_lowercase)
     symbols = []
-    i = 0
 
     for letter in alphabet:
-        #https://eoddata.com/stocklist/NASDAQ/B.htm
         print(f"Getting stock symbols for letter {letter} from {exchange}")
         url = f"http://eoddata.com/stocklist/{exchange}/{letter}.htm"
         r = requests.get(url)
@@ -91,9 +89,6 @@ def scrape_symbols(exchange):
                 # append the first cell (the symbol) to the list if it exists
                 if len(cells) > 0:
                     symbols.append(cells[0].text.rstrip())
-                #i+=1
-               #if i == 10:
-                   # return symbols
     return symbols
 
 def fetchStocksByMarketAndReduceSizeOfList(market, listSize):
