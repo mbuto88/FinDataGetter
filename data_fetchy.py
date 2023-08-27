@@ -38,10 +38,9 @@ def fetch_data(symbols):
 
 
 def fetch_stock_data(symbol, start_date, end_date):
-    stock = yf.Ticker(symbol)
-    data = yf.download(stock, start=start_date, end=end_date)
+    # Directly using the symbol string for yf.download
+    data = yf.download(symbol, start=start_date, end=end_date)
     return data
-
 
 
 def write_to_csv(data, filename):
